@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Rejoindre KÔDÔ</title>
-  <meta http-equiv="refresh" content="0;url=kodo://invite">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, sans-serif; text-align: center;
@@ -25,21 +24,20 @@
   <div class="logo">✨</div>
   <h1>KÔDÔ</h1>
   <p class="sub">L'app qui renforce votre relation</p>
-
   <div class="card">
     <p>Ton partenaire t'invite à rejoindre son duo sur <strong class="gold">KÔDÔ</strong>.</p>
-    <a href="kodo://invite" class="btn">Rejoindre le duo 💛</a>
+    <a href="intent://invite#Intent;scheme=kodo;package=com.example.kodo_flutter;end" class="btn">
+      Rejoindre le duo 💛
+    </a>
   </div>
-
   <p class="note">
     Tu n'as pas encore KÔDÔ ?<br>
     Installe-la d'abord sur le Play Store, puis reviens ici.
   </p>
-
   <script>
-    // Tentative d'ouverture automatique de l'app
+    // Tentative automatique après 500ms
     setTimeout(function() {
-      window.location = 'kodo://invite';
+      window.location = 'intent://invite#Intent;scheme=kodo;package=com.example.kodo_flutter;end';
     }, 500);
   </script>
 </body>
