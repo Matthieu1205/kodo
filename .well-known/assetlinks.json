@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.kodo_flutter",
+    "sha256_cert_fingerprints": [
+      "92:58:05:CE:A6:55:3C:9B:0D:DC:40:6B:A5:61:04:57:38:FD:0B:62:33:31:05:4B:41:A5:E0:17:37:D1:CF:CF"
+    ]
+  }
+}]
