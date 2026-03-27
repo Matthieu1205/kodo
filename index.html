@@ -1,49 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Rejoindre KÔDÔ</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, sans-serif; text-align: center;
-           padding: 60px 24px; background: #F8F5EF; color: #2C2C2C; min-height: 100vh; }
-    .logo { font-size: 48px; margin-bottom: 16px; }
-    h1 { font-size: 32px; color: #1A1F3C; font-weight: 700; margin-bottom: 8px; }
-    .sub { font-size: 16px; color: #8A8A8A; margin-bottom: 40px; }
-    .card { background: white; border-radius: 20px; padding: 28px;
-            max-width: 400px; margin: 0 auto 24px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-    .card p { font-size: 16px; color: #2C2C2C; line-height: 1.5; margin-bottom: 16px; }
-    .btn { display: inline-block; background: #1A1F3C; color: white;
-           padding: 16px 32px; border-radius: 16px; text-decoration: none;
-           font-size: 16px; font-weight: 700; cursor: pointer; border: none; }
-    .note { font-size: 13px; color: #8A8A8A; margin-top: 24px; line-height: 1.6; }
-    .gold { color: #C9A84C; }
-    #msg { font-size: 13px; color: #C9A84C; margin-top: 12px; display: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KODO - Rejoindre un Duo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #FAF9F6;
+            color: #2C3E50;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 32px;
+            max-width: 380px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .logo { font-size: 48px; margin-bottom: 16px; }
+        h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #1B2A4A; }
+        p { font-size: 16px; color: #7f8c8d; line-height: 1.5; margin-bottom: 24px; }
+        .btn {
+            display: inline-block;
+            background: #1B2A4A;
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #2c3e6a; }
+        .sub { font-size: 13px; color: #bbb; margin-top: 16px; }
+    </style>
+    <script>
+        // Récupérer le paramètre duo de l'URL
+        const params = new URLSearchParams(window.location.search);
+        const duoId = params.get('duo') || '';
+
+        // Construire le lien Android App Links avec le duo_id
+        function getAppLink() {
+            if (duoId) {
+                return 'intent://invite?duo=' + duoId + '#Intent;scheme=kodo;package=com.example.kodo_flutter;end';
+            }
+            return 'intent://invite#Intent;scheme=kodo;package=com.example.kodo_flutter;end';
+        }
+
+        function openApp() {
+            window.location.href = getAppLink();
+        }
+    </script>
 </head>
 <body>
-  <div class="logo">✨</div>
-  <h1>KÔDÔ</h1>
-  <p class="sub">L'app qui renforce votre relation</p>
-
-  <div class="card">
-    <p>Ton partenaire t'invite à rejoindre son duo sur <strong class="gold">KÔDÔ</strong>.</p>
-    <button class="btn" onclick="openApp()">Rejoindre le duo 💛</button>
-    <p id="msg">Si l'app ne s'ouvre pas, assure-toi qu'elle est bien installée.</p>
-  </div>
-
-  <p class="note">
-    Tu n'as pas encore KÔDÔ ?<br>
-    Installe-la d'abord, puis reviens ici.
-  </p>
-
-  <script>
-    function openApp() {
-      window.location = 'kodo://invite';
-      setTimeout(function() {
-        document.getElementById('msg').style.display = 'block';
-      }, 2000);
-    }
-  </script>
+    <div class="card">
+        <div class="logo">&#x1F48C;</div>
+        <h1>KODO</h1>
+        <p>Ton partenaire t'invite a rejoindre son duo sur KODO, l'app qui renforce les relations.</p>
+        <a href="#" class="btn" onclick="openApp(); return false;">Ouvrir KODO</a>
+        <p class="sub">Si l'app ne s'ouvre pas, installe KODO depuis le Play Store.</p>
+    </div>
 </body>
 </html>
